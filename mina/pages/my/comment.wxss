@@ -1,0 +1,340 @@
+page {
+    min-height: 100%;
+    background-color: #F2f2f2;
+}
+
+.container {
+    min-height: 100%;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.sec-wrap {
+    background-color: #fff;
+    margin-top: 20 rpx;
+}
+
+.bottom-fiexd {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.sec-wrap .order-status {
+    width: 720 rpx;
+    margin-left: 30 rpx;
+    border-bottom: 1 rpx solid #eee;
+    height: 140 rpx;
+    display: flex;
+    align-items: center;
+}
+
+.order-status .icon-box {
+    width: 80 rpx;
+    height: 80 rpx;
+    overflow: hidden;
+    margin-right: 30 rpx;
+}
+
+.order-status .icon-box .icon {
+    width: 80 rpx;
+    height: 80 rpx;
+}
+
+.order-status .right-text {
+    width: 580 rpx;
+    overflow: hidden;
+}
+
+.order-status .right-text .status {
+    font-size: 28 rpx;
+    color: #000;
+    margin-bottom: 10 rpx;
+}
+
+.order-status .right-text .red {
+    color: #e64340;
+}
+
+.order-status .right-text .des {
+    font-size: 24 rpx;
+    color: #999;
+}
+
+.address-sec {
+    width: 720 rpx;
+    margin-left: 30 rpx;
+    display: flex;
+    align-items: center;
+    padding: 30 rpx 0;
+}
+
+.address-sec .icon-box {
+    width: 30 rpx;
+    align-self: flex-start;
+    overflow: hidden;
+    margin-right: 35 rpx;
+}
+
+.address-sec .icon-box .icon {
+    width: 30 rpx;
+    height: 30 rpx;
+}
+
+.address-sec .right-box {
+    width: 620 rpx;
+}
+
+.address-sec .right-box .name-tel {
+    font-size: 28 rpx;
+    color: #000000;
+    margin-bottom: 20 rpx;
+}
+
+.address-sec .right-box .text {
+    font-size: 24 rpx;
+    color: #888888;
+    line-height: 36 rpx;
+    height: 72 rpx;
+    overflow: hidden;
+}
+
+.wuliu-box {
+    width: 720 rpx;
+    margin-left: 30 rpx;
+    border-bottom: 1 rpx solid #eee;
+    display: flex;
+    align-items: center;
+    padding: 30 rpx 0;
+}
+
+.wuliu-box .icon-box {
+    width: 40 rpx;
+    height: 40 rpx;
+    overflow: hidden;
+    margin-right: 31 rpx;
+    align-self: flex-start;
+}
+
+.wuliu-box .icon-box .icon {
+    width: 40 rpx;
+    height: 40 rpx;
+}
+
+.wuliu-box .arrow-right {
+    width: 15 rpx;
+    height: 24 rpx;
+}
+
+.wuliu-box .arrow-right .arrow {
+    width: 15 rpx;
+    height: 24 rpx;
+}
+
+.wuliu-box .right-text {
+    width: 575 rpx;
+    margin-right: 30 rpx;
+}
+
+.wuliu-box .right-text .order-number {
+    font-size: 28 rpx;
+    color: #000;
+    margin-bottom: 14 rpx;
+}
+
+.wuliu-box .right-text .wuliu-text,
+.wuliu-box .right-text .wuliu-date {
+    font-size: 24 rpx;
+    color: #888888;
+    line-height: 36 rpx;
+}
+
+.goods-list {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20 rpx;
+    margin-top: 20 rpx;
+}
+
+.goods-list .list-title {
+    font-size: 28 rpx;
+    color: #000;
+    padding: 30 rpx 0 25 rpx 30 rpx;
+}
+
+.goods-list .a-goods {
+    width: 720 rpx;
+    margin-left: 30 rpx;
+    display: flex;
+    /*justify-content: space-between;*/
+    border-top: 1px solid #eee;
+    padding: 30 rpx 30 rpx 30 rpx 0;
+}
+
+.goods-list .a-goods .img-box {
+    width: 160 rpx;
+    height: 160 rpx;
+    overflow: hidden;
+    margin-right: 20 rpx;
+    background-color: #d8d8d8;
+}
+
+.goods-list .img-box .img {
+    width: 160 rpx;
+    height: 160 rpx;
+}
+
+.goods-list .a-goods .text-box {
+    width: 510 rpx;
+    box-sizing: border-box;
+    padding-top: 10 rpx;
+}
+
+.goods-list .btn-row {
+    width: 720 rpx;
+    margin-left: 30 rpx;
+    border-top: 1 rpx solid #eee;
+}
+
+.confirm-btn {
+    background: #ffffff;
+    border: 1 rpx solid #e64340;
+    border-radius: 6 rpx;
+    width: 164 rpx;
+    height: 60 rpx;
+    line-height: 60 rpx;
+    text-align: center;
+    margin: 20 rpx 30 rpx 20 rpx auto;
+    font-size: 26 rpx;
+    color: #e64340;
+    text-align: center;
+}
+
+.a-goods .text-box .arow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.a-goods .text-box .arow .goods-name {
+    width: 360 rpx;
+    font-size: 26 rpx;
+    height: 74 rpx;
+    color: #000000;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.a-goods .text-box .arow01 {
+    margin-bottom: 30 rpx;
+}
+
+.a-goods .text-box .arow .goods-price {
+    font-size: 26 rpx;
+    color: #000000;
+    align-self: flex-start;
+}
+
+.a-goods .text-box .arow .goods-label {
+    font-size: 26 rpx;
+    color: #999;
+}
+
+.a-goods .text-box .arow .goods-num {
+    font-size: 26 rpx;
+    color: #999;
+}
+
+.peisong-way {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20 rpx;
+}
+
+.peisong-way .row-box {
+    width: 720 rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24 rpx 0;
+    border-bottom: 1 rpx solid #eee;
+    margin-left: 30 rpx;
+}
+
+.peisong-way .row-label {
+    font-size: 28 rpx;
+    color: #000;
+}
+
+.peisong-way .right-text {
+    font-size: 28 rpx;
+    color: #666;
+    padding-right: 30 rpx;
+}
+
+.peisong-way .liuyan {
+    width: 510 rpx;
+    font-size: 28 rpx;
+}
+
+.goods-info {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 120 rpx;
+    padding-bottom: 24 rpx;
+}
+
+.goods-info .row-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24 rpx 30 rpx 12 rpx 30 rpx;
+    font-size: 28 rpx;
+    color: #000;
+}
+
+.goods-info .row-box .right-text {
+    text-align: right;
+}
+
+.jiesuan-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100 rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    z-index: 4;
+}
+
+.jiesuan-box .to-pay-btn {
+    width: 250 rpx;
+    text-align: center;
+    height: 100%;
+    line-height: 100 rpx;
+    background-color: #e64340;
+    font-size: 32 rpx;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+.jiesuan-box .left-price {
+    display: flex;
+    width: 500 rpx;
+    justify-content: flex-end;
+    line-height: 100 rpx;
+    padding: 0 30 rpx 0 0;
+    font-size: 28 rpx;
+    box-sizing: border-box;
+}
+
+.jiesuan-box .total {
+    color: #e64340;
+    text-align: right;
+}

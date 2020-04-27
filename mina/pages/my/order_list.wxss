@@ -1,0 +1,177 @@
+.container {
+    width: 100%;
+    background-color: #F2f2f2;
+}
+
+.status-box {
+    width: 100%;
+    height: 88 rpx;
+    line-height: 88 rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+
+.status-box .status-label {
+    width: 150 rpx;
+    height: 100%;
+    text-align: center;
+    font-size: 28 rpx;
+    color: #353535;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.status-box .status-label.active {
+    color: #e64340;
+    border-bottom: 6 rpx solid #e64340;
+}
+
+.status-box .status-label .red-dot {
+    width: 16 rpx;
+    height: 16 rpx;
+    position: absolute;
+    left: 116 rpx;
+    top: 23 rpx;
+    background-color: #f43530;
+    border-radius: 50%;
+}
+
+.no-order {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 88 rpx;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 203 rpx;
+    background-color: #F2f2f2;
+}
+
+.no-order-img {
+    width: 81 rpx;
+    height: 96 rpx;
+    margin-bottom: 31 rpx;
+}
+
+.no-order .text {
+    font-size: 28 rpx;
+    color: #999999;
+    text-align: center
+}
+
+.order-list {
+    width: 100%;
+}
+
+.order-list .a-order {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 20 rpx;
+}
+
+.order-list .a-order .order-date {
+    padding: 0 30 rpx;
+    height: 88 rpx;
+    display: flex;
+    justify-content: space-between;
+    font-size: 26 rpx;
+    color: #000000;
+    align-items: center;
+}
+
+.order-list .a-order .order-date .red {
+    font-size: 26 rpx;
+    color: #e64340;
+}
+
+.a-order .goods-info,
+.goods-img-container {
+    width: 720 rpx;
+    margin-left: 30 rpx;
+    border-top: 1 rpx solid #eee;
+    border-bottom: 1 rpx solid #eee;
+    padding: 30 rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.goods-info .img-box {
+    width: 120 rpx;
+    height: 120 rpx;
+    overflow: hidden;
+    margin-right: 30 rpx;
+    background-color: #f7f7f7;
+}
+
+.goods-info .img-box .goods-img,
+.goods-img-container .img-box .goods-img {
+    width: 120 rpx;
+    height: 120 rpx;
+}
+
+.goods-info .goods-des {
+    width: 540 rpx;
+    height: 78 rpx;
+    line-height: 39 rpx;
+    font-size: 26 rpx;
+    color: #000000;
+    overflow: hidden;
+}
+
+.goods-img-container {
+    height: 180 rpx;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.goods-img-container .img-box {
+    width: 120 rpx;
+    height: 120 rpx;
+    overflow: hidden;
+    margin-right: 20 rpx;
+    background-color: #f7f7f7;
+    display: inline-block;
+}
+
+.order-list .a-order .price-box {
+    position: relative;
+    width: 720 rpx;
+    height: 100 rpx;
+    margin-left: 30 rpx;
+    box-sizing: border-box;
+    padding: 20 rpx 30 rpx 20 rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 26 rpx;
+}
+
+.order-list .a-order .price-box .total-price {
+    font-size: 26 rpx;
+    color: #e64340;
+}
+
+.a-order .price-box .btn {
+    width: 166 rpx;
+    height: 60 rpx;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 60 rpx;
+    border-radius: 6 rpx;
+    margin-left: 20 rpx;
+}
+
+.a-order .price-box .cancel-btn {
+    border: 1 rpx solid #ccc;
+    position: absolute;
+    right: 216 rpx;
+    top: 20 rpx;
+}
+
+.a-order .price-box .topay-btn {
+    border: 1px solid #e64340;
+    color: #e64340;
+}

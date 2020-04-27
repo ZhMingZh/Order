@@ -1,0 +1,217 @@
+.container {
+    background-color: #F2f2f2;
+}
+
+.address-box {
+    width: 100%;
+    background: url(http://cdn.static.54php.cn/mina_order/arrow-right.png) no-repeat 705 rpx center,
+    url(http://cdn.static.54php.cn/mina_order/addr-line.png) no-repeat center bottom;
+    background-size: 16 rpx auto, 750 rpx auto;
+    background-color: #fff;
+    margin: 20 rpx 0;
+}
+
+.add-addres {
+    width: 100%;
+}
+
+.add-address .title {
+    font-size: 28 rpx;
+    color: #000;
+    margin-left: 30 rpx;
+    background: url(http://cdn.static.54php.cn/mina_order/ico-add-addr.png) no-repeat left center;
+    background-size: 60 rpx auto;
+    padding: 40 rpx 0 40 rpx 90 rpx;
+}
+
+.show-address {
+    width: 664 rpx;
+    box-sizing: border-box;
+    padding-left: 100 rpx;
+    background: url(http://cdn.static.54php.cn/mina_order/ico-addr.png) no-repeat 30 rpx 35 rpx;
+    background-size: 30 rpx auto;
+}
+
+.show-address .name-tel {
+    font-size: 28 rpx;
+    color: #000;
+    padding: 30 rpx 0 20 rpx 0;
+}
+
+.show-address .addr-text {
+    font-size: 24 rpx;
+    color: #888;
+    padding-bottom: 34 rpx;
+    line-height: 36 rpx;
+}
+
+form {
+    width: 100%;
+}
+
+.goods-list {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20 rpx;
+}
+
+.goods-list .list-title {
+    font-size: 28 rpx;
+    color: #000;
+    padding: 30 rpx 0 25 rpx 30 rpx;
+}
+
+.goods-list .a-goods {
+    width: 720 rpx;
+    margin-left: 30 rpx;
+    display: flex;
+    /*justify-content: space-between;*/
+    border-top: 1px solid #eee;
+    padding: 30 rpx 30 rpx 30 rpx 0;
+}
+
+.goods-list .a-goods .img-box {
+    width: 160 rpx;
+    height: 160 rpx;
+    overflow: hidden;
+    margin-right: 20 rpx;
+    background-color: #d8d8d8;
+}
+
+.goods-list .img-box .img {
+    width: 160 rpx;
+    height: 160 rpx;
+}
+
+.goods-list .a-goods .text-box {
+    width: 510 rpx;
+    box-sizing: border-box;
+    padding-top: 10 rpx;
+}
+
+.a-goods .text-box .arow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.a-goods .text-box .arow .goods-name {
+    width: 360 rpx;
+    font-size: 26 rpx;
+    height: 74 rpx;
+    color: #000000;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.a-goods .text-box .arow01 {
+    margin-bottom: 30 rpx;
+}
+
+.a-goods .text-box .arow .goods-price {
+    font-size: 26 rpx;
+    color: #000000;
+    align-self: flex-start;
+}
+
+.a-goods .text-box .arow .goods-label {
+    font-size: 26 rpx;
+    color: #999;
+}
+
+.a-goods .text-box .arow .goods-num {
+    font-size: 26 rpx;
+    color: #999;
+}
+
+.peisong-way {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20 rpx;
+}
+
+.peisong-way .row-box {
+    width: 720 rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24 rpx 0 24 rpx 30 rpx;
+    border-bottom: 1 rpx solid #eee;
+}
+
+.peisong-way .row-label {
+    font-size: 28 rpx;
+    color: #000;
+}
+
+.peisong-way .right-text {
+    font-size: 28 rpx;
+    color: #666;
+    padding-right: 30 rpx;
+}
+
+.peisong-way .liuyan {
+    width: 510 rpx;
+    font-size: 28 rpx;
+}
+
+.goods-info {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 120 rpx;
+    padding-bottom: 24 rpx;
+}
+
+.goods-info .row-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24 rpx 30 rpx 12 rpx 30 rpx;
+    font-size: 28 rpx;
+    color: #000;
+}
+
+.goods-info .row-box .right-text {
+    text-align: right;
+}
+
+.jiesuan-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100 rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+}
+
+.jiesuan-box .to-pay-btn {
+    width: 250 rpx;
+    text-align: center;
+    height: 100%;
+    line-height: 100 rpx;
+    background-color: #e64340;
+    font-size: 32 rpx;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+.jiesuan-box .left-price {
+    display: flex;
+    width: 500 rpx;
+    justify-content: flex-end;
+    line-height: 100 rpx;
+    padding: 0 30 rpx 0 0;
+    font-size: 28 rpx;
+    box-sizing: border-box;
+}
+
+.jiesuan-box .total {
+    color: #e64340;
+    text-align: right;
+}

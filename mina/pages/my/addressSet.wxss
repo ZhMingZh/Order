@@ -1,0 +1,103 @@
+page {
+    height: 100%;
+}
+
+.container {
+    background-color: #f5f5f9;
+    justify-content: initial;
+}
+
+.form-box {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 20 rpx;
+}
+
+.row-wrap {
+    width: 720 rpx;
+    height: 88 rpx;
+    line-height: 88 rpx;
+    margin-left: 30 rpx;
+    border-bottom: 1 rpx solid #eee;
+    display: flex;
+    font-size: 28 rpx;
+    /*justify-content: space-between;*/
+}
+
+.row-wrap .label {
+    width: 160 rpx;
+    color: #000
+}
+
+.row-wrap .label-right {
+    flex: 1;
+    height: 88 rpx;
+    line-height: 88 rpx;
+}
+
+.row-wrap .label-right input {
+    height: 100%;
+    font-size: 28 rpx;
+    padding-right: 30 rpx;
+}
+
+.row-wrap .right-box {
+    margin-right: 30 rpx;
+}
+
+.arrow-right {
+    width: 15 rpx;
+    height: 24 rpx;
+}
+
+.save-btn,
+.cancel-btn {
+    width: 690 rpx;
+    height: 80 rpx;
+    line-height: 80 rpx;
+    text-align: center;
+    margin-top: 30 rpx;
+    border-radius: 6 rpx;
+    box-sizing: border-box;
+}
+
+.save-btn {
+    background-color: #e64340;
+    color: #fff;
+}
+
+button[type="default"] {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.addr-details {
+    height: auto;
+    padding: 30 rpx 0;
+    margin-left: 30 rpx;
+    border-bottom: 1 rpx solid #eee;
+    display: flex;
+    font-size: 28 rpx;
+}
+
+.addr-details .label {
+    margin: auto 0 auto 0;
+    width: 160 rpx;
+    color: #000
+}
+
+.addr-details textarea {
+    box-sizing: border-box;
+    width: 480 rpx;
+    overflow: scroll;
+}
+
+picker {
+    min-width: 20 rpx;
+    height: 100%;
+    margin-right: 20 rpx;
+}
+
+.hui {
+    color: #777;
+}
