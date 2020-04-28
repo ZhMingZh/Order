@@ -1,13 +1,10 @@
-import re
-
-from flask import request, redirect, g
-
 from application import app
-from common.libs.LogService import LogService
-from common.libs.UrlManager import UrlManager
+from flask import request, redirect, g
 from common.libs.user.UserService import UserService
 from common.models.User import User
-
+from common.libs.UrlManager import UrlManager
+import re
+from common.libs.LogService import LogService
 
 @app.before_request
 def before_request():
@@ -20,7 +17,7 @@ def before_request():
     path = request.path
     ignore_urls = app.config["IGNORE_URLS"]
     ignore_check_login_urls = app.config["IGNORE_CHECK_LOGIN_URLS"]
-    # 静态文件不需要检测是否已经登录
+    #静态文件不需要检测是否已经登录
     pattern = re.compile("%s" % "|".join(ignore_check_login_urls))
     if pattern.match(path):
         return
@@ -43,6 +40,8 @@ def before_request():
 
     if not user_info:
         return redirect(UrlManager.buildUrl('/user/login'))
+
+
 
 
 def check_login():

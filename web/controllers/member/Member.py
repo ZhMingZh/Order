@@ -1,5 +1,4 @@
 from flask import Blueprint
-
 from common.libs.Helper import ops_render
 
 route_member = Blueprint('member_page', __name__)

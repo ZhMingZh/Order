@@ -1,12 +1,10 @@
-import json
-
 from flask import Blueprint, request, jsonify, make_response, redirect, g
-
+from common.models.User import User
+from common.libs.user.UserService import UserService
+import json
+from common.libs.UrlManager import UrlManager
 from application import app, db
 from common.libs.Helper import ops_render
-from common.libs.UrlManager import UrlManager
-from common.libs.user.UserService import UserService
-from common.models.User import User
 
 route_user = Blueprint('user_page', __name__)
 
@@ -49,16 +47,17 @@ def login():
 
     response = make_response(json.dumps(resp))
     response.set_cookie(app.config['AUTH_COOKIE_NAME'], "%s#%s" % (
-        UserService.geneAuthCode(user_info), user_info.uid), 60 * 60 * 24 * 120)  # 120天有效期
+                        UserService.geneAuthCode(user_info),user_info.uid), 60 * 60 * 24 * 120)  #120天有效期
 
     return response
 
 
 @route_user.route('/edit', methods=["POST", "GET"])
 def edit():
+
     if request.method == "GET":
         return ops_render('user/edit.html', {'current': 'edit'})
-    resp = {'code': 200, 'msg': "操作成功", 'data': {}}
+    resp = {'code':200, 'msg':"操作成功", 'data':{}}
     res = request.values
     nickname = res['nickname'] if 'nickname' in res else ''
     email = res['email'] if 'email' in res else ''
@@ -121,7 +120,7 @@ def reset_pwd():
     # 因为更改密码之后，cookie失效，可以在此步骤更新下cookies,这样就不会退出在登录了
     response = make_response(json.dumps(resp))
     response.set_cookie(app.config['AUTH_COOKIE_NAME'], '%s#%s' %
-                        (UserService.geneAuthCode(user_info), user_info.uid), 120 * 24 * 60 * 60)
+                        (UserService.geneAuthCode(user_info),user_info.uid), 120 * 24 * 60 * 60)
 
     return response
 

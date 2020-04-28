@@ -1,47 +1,46 @@
-.container {
-    min-height: 100%;
-    overflow: hidden;
-    overflow-y: hidden;
+.container{
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
 }
-
 .userinfo {
-    display: flex;
-    flex-direction: column;
-    padding: 50 rpx 0;
-    align-items: center;
-    background: #e85654;
-    width: 750 rpx;
+	display: flex;
+	flex-direction: column;
+	padding: 50rpx 0;
+	align-items: center;
+	background: #e85654;
+  width: 750rpx;
 }
 
 .userinfo-avatar {
-    width: 160 rpx;
-    height: 160 rpx;
-    margin: 20 rpx;
-    border-radius: 50%;
+	width: 160rpx;
+	height: 160rpx;
+	margin: 20rpx;
+	border-radius: 50%;
 }
 
 .userinfo-nickname {
-    margin-top: 20 rpx;
-    color: #FFF;
+  margin-top: 20rpx;
+  color: #FFF;
 }
 
 
 .version {
-    width: 100%;
-    height: 40 rpx;
-    line-height: 40 rpx;
-    font-size: 24 rpx;
-    text-align: center;
-    padding: 40 rpx;
+  width:100%;
+  height: 40rpx;
+	line-height: 40rpx;
+	font-size: 24rpx;
+	text-align: center;  
+  padding: 40rpx;
 }
 
-.my-item {
+.my-item{
     width: 100%;
-    background: url(http://cdn.static.54php.cn/mina_order/arrow-right.png) no-repeat 750 rpx center;
-    background-size: 16 rpx auto, 750 rpx auto;
-    margin: 20 rpx 0;
+    background: url(http://cdn.static.54php.cn/mina_order/arrow-right.png) no-repeat 750rpx center;
+    background-size: 16rpx auto,750rpx auto;
+    margin: 20rpx 0; 
     border-bottom: 1px solid #eee;
-    height: 100 rpx;
-    line-height: 100 rpx;
-    padding-left: 100 rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 100rpx;
 }

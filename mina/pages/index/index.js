@@ -6,7 +6,7 @@ Page({
         remind: '加载中',
         angle: 0,
         userInfo: {},
-        regFlag: true,
+        regFlag:true
     },
     goToIndex: function () {
         wx.switchTab({
@@ -17,10 +17,7 @@ Page({
         wx.setNavigationBarTitle({
             title: app.globalData.shopName
         });
-
         this.checkLogin();
-
-
     },
     onShow: function () {
 
@@ -36,7 +33,8 @@ Page({
             var angle = -(res.x * 30).toFixed(1);
             if (angle > 14) {
                 angle = 14;
-            } else if (angle < -14) {
+            }
+            else if (angle < -14) {
                 angle = -14;
             }
             if (that.data.angle !== angle) {
@@ -46,77 +44,64 @@ Page({
             }
         });
     },
-
-    checkLogin: function () {
+    checkLogin:function(){
         var that = this;
-        wx.login({
-            success: function (res) {
-                if (!res.code) {
-                    app.alert({'content': "登录失败，请再次点击"});
+         wx.login({
+             success:function( res ){
+                 if( !res.code ){
+                    app.alert( { 'content':'登录失败，请再次点击~~' } );
                     return;
-                }
-                wx.request({
-                    url: app.buildUrl('/member/check_reg'),
-                    header: app.getRequestHeader(),
-                    method: 'POST',
-                    data: {'code': res.code},
-                    success: function (res) {
-                        if (res.data.code != 200) {
+                 }
+                 wx.request({
+                    url:app.buildUrl( '/member/check_reg' ),
+                    header:app.getRequestHeader(),
+                    method:'POST',
+                    data:{ code:res.code },
+                    success:function( res ){
+                        if( res.data.code != 200 ){
                             that.setData({
-                                regFlag: false
+                                regFlag:false
                             });
                             return;
                         }
-                        app.setCache('token', res.data.data.token);
+
+                        app.setCache( "token",res.data.data.token );
                         //that.goToIndex();
                     }
-
                 });
-
-            }
-
-        });
+             }
+         });
     },
-
-    login: function (e) {
+    login:function( e ){
         var that = this;
-        if (!e.detail.userInfo) {
-            app.alert({'content': "登录失败，请再次点击"});
+        if( !e.detail.userInfo ){
+            app.alert( { 'content':'登录失败，请再次点击~~' } );
             return;
         }
-        var data = e.detail.userInfo;
 
+        var data = e.detail.userInfo;
         wx.login({
-            success(res) {
-                if (!res.code) {
-                    app.alert({'content': "登录失败，请再次点击"});
+            success:function( res ){
+                if( !res.code ){
+                    app.alert( { 'content':'登录失败，请再次点击~~' } );
                     return;
                 }
                 data['code'] = res.code;
                 wx.request({
-                    url: app.buildUrl('/member/login'),
-                    header: app.getRequestHeader(),
-                    method: 'POST',
-                    data: data,
-                    success: function (res) {
-                        if (res.data.code != 200) {
-                            app.alert({'content': res.data.msg});
+                    url:app.buildUrl( '/member/login' ),
+                    header:app.getRequestHeader(),
+                    method:'POST',
+                    data:data,
+                    success:function( res ){
+                        if( res.data.code != 200 ){
+                            app.alert( { 'content':res.data.msg } );
                             return;
                         }
-                        app.setCache('token', res.data.data.token);
+                        app.setCache( "token",res.data.data.token );
                         that.goToIndex();
                     }
-
                 });
-
-
             }
-
-
         });
-
-
     }
-
-
 });

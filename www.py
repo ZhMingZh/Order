@@ -1,7 +1,11 @@
+from application import app
+
 """
 拦截器相关
 """
+from web.interceptos.Authinterceptor import *
 from web.interceptos.Errorinterceptor import *
+
 
 """
 蓝图相关,对所有的url进行蓝图功能配置
@@ -13,9 +17,9 @@ from web.controllers.member.Member import route_member
 from web.controllers.finance.Finance import route_finance
 from web.controllers.stat.Stat import route_stat
 from web.controllers.food.Food import route_food
-from web.controllers.api.Member import api_route
+from web.controllers.api.Member import route_api
 
-app.register_blueprint(api_route, url_prefix='/api')
+app.register_blueprint(route_api, url_prefix='/api')
 app.register_blueprint(route_index, url_prefix='/')
 app.register_blueprint(route_user, url_prefix='/user')
 app.register_blueprint(route_account, url_prefix='/account')

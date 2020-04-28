@@ -1,13 +1,12 @@
 from flask import Blueprint, request, redirect, jsonify
-from sqlalchemy import or_
-
-from application import app, db
-from common.libs.Helper import getCurrentDate
+from common.models.User import User
 from common.libs.Helper import ops_render, iPagination
 from common.libs.UrlManager import UrlManager
 from common.libs.user.UserService import UserService
+from application import app, db
+from common.libs.Helper import getCurrentDate
+from sqlalchemy import or_
 from common.models.AppAccessLog import AppAccessLog
-from common.models.User import User
 
 route_account = Blueprint('account_page', __name__)
 
@@ -40,7 +39,7 @@ def index():
     # app.logger.info(page)
     # app.logger.info(request.full_path, request.path)
     pages = iPagination(page_params)
-    # 偏移量
+    #偏移量
     offset = (page - 1) * app.config['PAGE_SIZE']
     limit = app.config['PAGE_SIZE'] * page
 
@@ -58,7 +57,7 @@ def info():
     req = request.args  # 获取get的参数
     uid = (req.get('id', ''))
     # 确保id的参数是整数
-    uid = int(uid) if uid.isdigit() else 0
+    uid = int(uid)  if uid.isdigit() else 0
     reback_url = UrlManager.buildUrl('/account/index')
     if uid < 1:
         return redirect(reback_url)
@@ -71,11 +70,11 @@ def info():
 
     page = int(req['p']) if ('p' in req and req['p'].isdigit()) else 1
     page_params = {
-        'total': query.count(),
+        'total':query.count(),
         'page_size': app.config['PAGE_SIZE'],
         'page': page,
         'display': app.config['PAGE_DISPLAY'],
-        'url': request.full_path.replace("&p={}".format(page), '')
+        'url':request.full_path.replace("&p={}".format(page), '')
 
     }
     pages = iPagination(page_params)
@@ -103,7 +102,7 @@ def set():
         resp_data['user_info'] = user_info
         return ops_render('account/set.html', resp_data)
 
-    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+    resp = {'code':200, 'msg':'操作成功', 'data':{}}
     req = request.values
 
     id = req['id'] if 'id' in req else 0
@@ -168,7 +167,7 @@ def set():
 
 @route_account.route('/ops', methods=['POST'])
 def ops():
-    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+    resp = {'code':200, 'msg':'操作成功', 'data':{}}
     req = request.values
     id = req['id'] if 'id' in req else 0
     act = req['act'] if 'act' in req else ''
@@ -200,3 +199,9 @@ def ops():
     db.session.commit()
 
     return jsonify(resp)
+
+
+
+
+
+

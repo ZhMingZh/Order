@@ -1,7 +1,7 @@
-from flask_script import Server
-from loguru import logger
-
 from application import app, manager
+from flask_script import Server
+import www
+from loguru import logger
 
 # web server
 manager.add_command('runserver',
@@ -13,15 +13,14 @@ manager.add_command('runserver',
 
 @logger.catch
 def main():
+
     manager.run()
 
 
 if __name__ == '__main__':
     try:
         import sys
-
         sys.exit(main())
     except Exception as e:
         import traceback
-
         traceback.print_exc()

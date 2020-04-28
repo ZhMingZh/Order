@@ -8,7 +8,7 @@
     <link href="{{ buildStaticUrl('/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ buildStaticUrl('/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ buildStaticUrl('/css/style.css') }}" rel="stylesheet">
-    {% block css %}{% endblock %}
+    {%block css %}{% endblock %}
 <body>
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
@@ -56,8 +56,7 @@
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="javascript:void(0);"><i
-                            class="fa fa-bars"></i> </a>
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="javascript:void(0);"><i class="fa fa-bars"></i> </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
@@ -67,20 +66,18 @@
                     </li>
                     <li class="dropdown user_info">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                            <img alt="image" class="img-circle"
-                                 src="{{ buildStaticUrl('/images/common/avatar.png') }}"/>
+                            <img alt="image" class="img-circle" src="{{ buildStaticUrl('/images/common/avatar.png') }}"/>
                         </a>
                         <ul class="dropdown-menu dropdown-messages">
                             <li>
                                 <div class="dropdown-messages-box">
-                                    {{ current_user.nickname }}<a href="{{ buildUrl('/user/edit') }}"
-                                                                  class="pull-right">编辑</a>
+                                    {{ current_user.nickname }}<a href="{{ buildUrl('/user/edit') }}" class="pull-right">编辑</a>
                                 </div>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <div class="dropdown-messages-box">
-                                    {{ current_user.mobile }}
+                                   {{ current_user.mobile }}
                                 </div>
                             </li>
                             <li class="divider"></li>
@@ -109,6 +106,6 @@
 <script src="{{ buildStaticUrl('/bootstrap/bootstrap.min.js') }}"></script>
 <script src="{{ buildStaticUrl('/plugins/layer/layer.js') }}"></script>
 <script src="{{ buildStaticUrl('/js/common.js') }}"></script>
-{% block js %}{% endblock %}
+{%block js %}{% endblock %}
 </body>
 </html>

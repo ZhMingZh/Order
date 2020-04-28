@@ -1,22 +1,19 @@
-from flask import request, jsonify, Blueprint
-
-from application import db
+from flask import request, jsonify,Blueprint
+from application import app, db
+import requests
+from common.models.member.OauthMemberBind import OauthMemberBind
+from common.models.member.Member import Member
 from common.libs.Helper import getCurrentDate
 from common.libs.member.MemberService import MemberService
-from common.models.member.Member import Member
-from common.models.member.OauthMemberBind import OauthMemberBind
-
-api_route = Blueprint('api_page', __name__)
+import json
 
 
-@api_route.route('/')
-def index():
-    return 'Minia V1.0'
+route_api = Blueprint('api_page', __name__)
 
 
-@api_route.route('/member/login', methods=['POST', 'GET'])
+@route_api.route('/member/login', methods=['POST', 'GET'])
 def login():
-    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+    resp = {'code':200, 'msg': '操作成功', 'data':{}}
     req = request.values
     code = req['code'] if 'code' in req else ''
     if not code:
@@ -44,7 +41,7 @@ def login():
         model_member.nickname = nickname
         model_member.sex = sex
         model_member.avatar = avatar
-        model_member.salt = MemberService.geneSalt()
+        model_member.salt = ''
         model_member.reg_ip = request.remote_addr
         model_member.updated_time = model_member.created_time = getCurrentDate()
 
@@ -55,50 +52,48 @@ def login():
         model_oauth = OauthMemberBind()
         model_oauth.member_id = model_member.id
         model_oauth.type = 1
-        model_oauth.extra = ''
+        model_oauth.extra = MemberService.geneSalt()
         model_oauth.openid = openid
         model_oauth.updated_time = model_oauth.created_time = getCurrentDate()
 
         db.session.add(model_oauth)
         db.session.commit()
-        #
+    #
         oauth_info = model_oauth
 
     member_info = Member.query.filter_by(id=oauth_info.member_id).first()
-    token = "%s#%s" % (MemberService.geneAuthCode(member_info), member_info.id)
-    resp['data'] = {'token': token}
+    resp['data'] = {"nickname": member_info.nickname}
     return jsonify(resp)
 
 
-@api_route.route('/member/check_reg', methods=["POST", "GET"])
-def check_reg():
-    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+@route_api.route("/member/check_reg",methods = [ "GET","POST" ])
+def checkReg():
+    resp = {'code': 200, 'msg': '操作成功~', 'data': {}}
     req = request.values
     code = req['code'] if 'code' in req else ''
-    if not code:
+    if not code or len(code) < 1:
         resp['code'] = -1
-        resp['msg'] = '需要code'
+        resp['msg'] = "需要code"
         return jsonify(resp)
 
     openid = MemberService.getWeChatOpenId(code)
     if openid is None:
         resp['code'] = -1
-        resp['msg'] = '调用微信出错'
+        resp['msg'] = "调用微信出错"
         return jsonify(resp)
 
-    oauth_info = OauthMemberBind.query.filter_by(openid=openid).first()
+    oauth_info = OauthMemberBind.query.filter_by(openid=openid, type=1).first()
     if not oauth_info:
         resp['code'] = -1
-        resp['msg'] = '未绑定'
+        resp['msg'] = "未绑定"
         return jsonify(resp)
 
-    member_info = Member.query.filter_by(id=oauth_info.member_id).first()
+    member_info = Member.query.filter_by( id = oauth_info.member_id).first()
     if not member_info:
         resp['code'] = -1
-        resp['msg'] = '未查询到绑定信息'
+        resp['msg'] = "未查询到绑定信息"
         return jsonify(resp)
 
-    token = "%s#%s" % (MemberService.geneAuthCode(member_info), member_info.id)
-    resp['data'] = {'token': token}
-
+    token = "%s#%s"%( MemberService.geneAuthCode( member_info ),member_info.id )
+    resp['data'] = { 'token':token }
     return jsonify(resp)
