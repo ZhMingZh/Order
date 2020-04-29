@@ -1,14 +1,13 @@
-from flask import request, jsonify,Blueprint
+from flask import request, jsonify
 from application import app, db
-import requests
 from common.models.member.OauthMemberBind import OauthMemberBind
 from common.models.member.Member import Member
 from common.libs.Helper import getCurrentDate
 from common.libs.member.MemberService import MemberService
-import json
 
+from web.controllers.api import route_api
 
-route_api = Blueprint('api_page', __name__)
+# route_api = Blueprint('api_page', __name__)
 
 
 @route_api.route('/member/login', methods=['POST', 'GET'])
@@ -34,7 +33,7 @@ def login():
     avatar = req['avatarUrl'] if 'avatarUrl' in req else ''
 
     # 判断是否已经绑定了openid，注册了直接返回一些信息
-    oauth_info = OauthMemberBind.query.filter_by(openid=openid).first()
+    oauth_info = OauthMemberBind.query.filter_by(openid=openid, type=1).first()
     if not oauth_info:
         # 会员信息
         model_member = Member()
@@ -62,7 +61,8 @@ def login():
         oauth_info = model_oauth
 
     member_info = Member.query.filter_by(id=oauth_info.member_id).first()
-    resp['data'] = {"nickname": member_info.nickname}
+    token = "%s#%s" % (MemberService.geneAuthCode(member_info), member_info.id)
+    resp['data'] = {'token': token}
     return jsonify(resp)
 
 

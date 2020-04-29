@@ -28,3 +28,4 @@ STATUS_MAPPING = {
 # 小程序相关
 APPID = 'wx8f8d1afbabf8223d'
 APP_SECRET= '14d59906fcfe9d09f53e7044b9895a6a'
+

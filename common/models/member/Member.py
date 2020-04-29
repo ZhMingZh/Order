@@ -1,5 +1,5 @@
 # coding: utf-8
-from application import db
+from application import db, app
 
 
 class Member(db.Model):
@@ -15,3 +15,16 @@ class Member(db.Model):
     status = db.Column(db.Integer, nullable=False, server_default=db.FetchedValue(), info='状态 1：有效 0：无效')
     updated_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue(), info='最后一次更新时间')
     created_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue(), info='插入时间')
+
+    @property
+    def status_desc(self):
+        return app.config['STATUS_MAPPING'][str(self.status)]
+
+    @property
+    def sex_desc(self):
+        SEX_MAPPING = {
+            '0': '未知',
+            '1': '男',
+            '2': '女'
+        }
+        return SEX_MAPPING[str(self.sex)]

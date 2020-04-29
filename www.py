@@ -17,7 +17,7 @@ from web.controllers.member.Member import route_member
 from web.controllers.finance.Finance import route_finance
 from web.controllers.stat.Stat import route_stat
 from web.controllers.food.Food import route_food
-from web.controllers.api.Member import route_api
+from web.controllers.api import route_api
 
 app.register_blueprint(route_api, url_prefix='/api')
 app.register_blueprint(route_index, url_prefix='/')
