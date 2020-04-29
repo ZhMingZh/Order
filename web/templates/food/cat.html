@@ -1,19 +1,6 @@
 {% extends "common/layout_main.html" %}
 {% block content %}
-<div class="row  border-bottom">
-    <div class="col-lg-12">
-        <div class="tab_title">
-            <ul class="nav nav-pills">
-                <li>
-                    <a href="{{ buildUrl('/food/index') }}">美食列表</a>
-                </li>
-                <li class="current">
-                    <a href="{{ buildUrl('/food/cat') }}">分类列表</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+{% include 'common/tag_food.html' %}
 <div class="row">
     <div class="col-lg-12">
         <form class="form-inline wrap_search">
@@ -21,8 +8,10 @@
                 <div class="form-group">
                     <select name="status" class="form-control inline">
                         <option value="-1">请选择状态</option>
-                        <option value="1">正常</option>
-                        <option value="0">已删除</option>
+                        {% for status in status_mapping %}
+                        <option value="{{ status }}" {% if status == search_con['status'] %}selected{% endif %}>
+                            {{ status_mapping[status] }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -30,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <a class="btn btn-w-m btn-outline btn-primary pull-right"
-                       href="{{ buildUrl('/food/cat-set') }}">
+                       href="{{ buildUrl('/food/cat_set') }}">
                         <i class="fa fa-plus"></i>分类
                     </a>
                 </div>
@@ -48,23 +37,38 @@
             </tr>
             </thead>
             <tbody>
+                {% if food_cat_info %}
+                {% for item in food_cat_info %}
             <tr>
-                <td>8</td>
-                <td>111</td>
-                <td>正常</td>
-                <td>11</td>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.status_desc }}</td>
+                <td>{{ item.weight }}</td>
                 <td>
-                    <a class="m-l" href="{{ buildUrl('/food/cat-set') }}">
+                    {% if item.status == 1 %}
+                    <a class="m-l" href="{{ buildUrl('/food/cat_set') }}?id={{ item.id }}">
                         <i class="fa fa-edit fa-lg"></i>
                     </a>
 
-                    <a class="m-l remove" href="javascript:void(0);" data="8">
+                    <a class="m-l remove" href="javascript:void(0);" data="{{ item.id }}">
                         <i class="fa fa-trash fa-lg"></i>
                     </a>
+                    {% else %}
+                        <a class="m-l recover" href="javascript:void(0);" data="{{ item.id }}">
+                        <i class="fa fa-rotate-left fa-lg"></i>
+                    </a>
+                    {% endif %}
                 </td>
             </tr>
+                {% endfor %}
+                {% else %}
+                <tr><td colspan="5" >暂无数据</td></tr>
+                {% endif %}
             </tbody>
         </table>
     </div>
 </div>
+{% endblock %}
+{% block js %}
+    <script src="{{ buildStaticUrl('/js/food/cat.js') }}"></script>
 {% endblock %}

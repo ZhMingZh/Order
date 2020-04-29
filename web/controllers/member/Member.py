@@ -46,6 +46,7 @@ def index():
     resp_data['pages'] = pages
     resp_data['search'] = req
     resp_data['status_mapping'] = app.config['STATUS_MAPPING']
+    resp_data['current'] = 'index'
     return ops_render('member/index.html', resp_data)
 
 
@@ -64,6 +65,7 @@ def info():
         return redirect(reback_url)
 
     resp_data['member_info'] = member_info
+    resp_data['current'] = 'index'
     return ops_render('member/info.html', resp_data)
 
 
@@ -86,6 +88,7 @@ def set():
             return redirect(reback_url)
 
         resp_data['member_info'] = member_info
+        resp_data['current'] = 'index'
         return ops_render('member/set.html', resp_data)
 
     resp = {'code':200, 'msg':'操作成功','data':{}}
