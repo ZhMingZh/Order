@@ -29,3 +29,14 @@ STATUS_MAPPING = {
 APPID = 'wx8f8d1afbabf8223d'
 APP_SECRET= '14d59906fcfe9d09f53e7044b9895a6a'
 
+# 上传的相关配置
+UPLOAD = {
+    'ext': ["png", "jpg", "jpeg", "gif", "bmp"],
+    'prefix_path': '/web/static/upload/',
+    'prefix_url': '/static/upload/'
+}
+
+
+APP = {
+    'domain': 'http://127.0.0.1:8999/'
+}
