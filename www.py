@@ -5,7 +5,7 @@ from application import app
 """
 from web.interceptos.Authinterceptor import *
 from web.interceptos.Errorinterceptor import *
-
+from web.interceptos.ApiAuthinterceptor import *
 
 """
 蓝图相关,对所有的url进行蓝图功能配置
