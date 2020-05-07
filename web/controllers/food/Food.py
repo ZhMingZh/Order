@@ -8,6 +8,7 @@ from application import app, db
 from decimal import Decimal
 from common.libs.UrlManager import UrlManager
 from sqlalchemy import or_
+from common.libs.food.FoodService import FoodService
 
 route_food = Blueprint('food_page', __name__)
 
@@ -167,15 +168,17 @@ def set():
     db.session.add(model_food)
     db.session.commit()
 
-    model_stock_change = FoodStockChangeLog()
-    model_stock_change.food_id = model_food.id
-    model_stock_change.unit = model_food.stock - before_stock
-    model_stock_change.total_stock = stock
-    model_stock_change.note = ''
-    model_stock_change.created_time = getCurrentDate()
+    # model_stock_change = FoodStockChangeLog()
+    # model_stock_change.food_id = model_food.id
+    # model_stock_change.unit = model_food.stock - before_stock
+    # model_stock_change.total_stock = stock
+    # model_stock_change.note = ''
+    # model_stock_change.created_time = getCurrentDate()
+    #
+    # db.session.add(model_stock_change)
+    # db.session.commit()
 
-    db.session.add(model_stock_change)
-    db.session.commit()
+    FoodService.setFoodStockChangeLog(model_food.id, int(stock) - int(before_stock) , '后台修改')
 
     return jsonify(resp)
 
