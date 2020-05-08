@@ -1,7 +1,7 @@
 # coding: utf-8
 from sqlalchemy import BigInteger, Column, DateTime, Index, Integer, Numeric, String, Text
 from sqlalchemy.schema import FetchedValue
-from application import db
+from application import db, app
 
 
 class PayOrder(db.Model):
@@ -27,3 +27,28 @@ class PayOrder(db.Model):
     pay_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue(), info='付款到账时间')
     updated_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue(), info='最近一次更新时间')
     created_time = db.Column(db.DateTime, nullable=False, server_default=db.FetchedValue(), info='插入时间')
+
+
+    @property
+    def pay_status(self):
+        tmp_status = self.status
+
+        if self.status == 1:
+            tmp_status = self.express_status
+            if self.express_status == 1 and self.comment_status == 0:
+                tmp_status = -5
+
+            if self.express_status == 1 and self.comment_status == 1:
+                tmp_status = 1
+
+        return tmp_status
+
+    @property
+    def status_desc(self):
+        return app.config['PAY_STATUS_DISPLAY_MAPPING'][str(self.pay_status)]
+
+    @property
+    def order_number(self):
+        order_number = self.created_time.strftime('%Y%m%d%H%M%S')
+        order_number = order_number + str(self.id).zfill(5)
+        return order_number

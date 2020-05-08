@@ -72,7 +72,7 @@ class PayService(object):
                 tmp_pay_item.note = note
                 tmp_pay_item.updated_time = tmp_pay_item.created_time = getCurrentDate()
                 db.session.add(tmp_pay_item)
-                db.session.flush()
+                # db.session.flush()
 
                 FoodService.setFoodStockChangeLog(item['id'], -item['number'], '在线购买')
 
